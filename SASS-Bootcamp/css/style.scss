@@ -1,0 +1,142 @@
+$prime: #1f4d79;
+$second: #129cf3;
+$dark: #1a262e;
+$clear: #fff;
+$padding: 20px;
+$font: Quicksand, Arial, Tahoma;
+
+@mixin texto($font, $size, $align, $line, $color) {
+    font: $size $font;
+    text-align: $align;
+    line-height: $line;
+    color: $color;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url('../imagens/bg.jpg') no-repeat fixed;
+}
+
+.header {
+    width: 100%;
+    padding: $padding;
+    background: $prime;
+    box-sizing: border-box;
+    & &-img {
+        width: 100px;
+    }
+
+    & &-nav {
+        float: right;
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+                padding: $padding;
+            }
+        }
+    }
+
+    & &-link {
+        color: $second;
+        font-size: 1.5em;
+        position: absolute;
+        transition: all 0.5s;
+        &:hover{
+            margin-top: -10px;
+        }
+    }
+}
+
+.banner {
+    text-align: center;
+    & &-text {
+        @include texto($font,2em,center,30px,$prime);
+        margin: $padding;
+    }
+}
+
+.btn {
+    @include texto($font,1em ,center ,30px ,$clear );
+    background: $second;
+    text-decoration: none;
+    margin: $padding;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 1s;
+    &:hover {
+        background: transparent;
+        border: 1px solid $second;
+        color: $second;
+        transition: all 1s;
+    }
+}
+.autor {
+    background: $dark;
+    & &-img {
+        width: 180px;
+        height: 150px;
+        border-radius: 100%;
+        border: 10px solid $clear;
+        float: left;
+        margin: 20px 20px 10px 20px;
+    }
+
+    h1 {
+        @include texto($font,2em ,center ,30px ,$second );
+        font-weight: bold;
+    }
+    
+    p {
+        @include texto($font,1.2em ,justify ,30px ,$clear);
+        margin: $padding;
+    }
+}
+
+section {
+    padding: 50px 0;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+.curso {
+    background: $second;
+    h1 {
+        @include texto($font,2em ,center ,30px ,$prime );
+        font-weight: bold;
+    }
+    p {
+        @include texto($font,1.2em ,justify ,30px ,$clear );
+        margin: $padding;
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: $padding;
+
+    p {
+        @include texto($font,1.2em ,center ,30px ,$clear );
+        margin-bottom: 0;
+    }
+
+    & &-img {
+        width: 100px;
+    }
+}
+
+@media (max-width:768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
